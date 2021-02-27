@@ -14,4 +14,3 @@ Backups are stored in [sc0ttwad3/roam-book-research (github.com)](https://github
 
 * [Roam2Github Backup Guide (notion.so)](https://www.notion.so/Roam2Github-Backup-Guide-650925859a4a42cf940e3fb74f5189f9)
 * [Roam2Github Update Instructions (notion.so)](https://www.notion.so/Roam2Github-Update-Instructions-c594a2931b694010814001c8a20fa960)
-* 
