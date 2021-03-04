@@ -6,7 +6,7 @@ on:
       - main
   schedule:
       # Here you can change how often your backup runs. See https://crontab.guru/examples.html
-      - cron: "0 * * * *"
+      - cron: "0 */3 * * *"
 
 jobs:
   backup:
@@ -39,10 +39,9 @@ jobs:
           BACKUP_JSON: true
           BACKUP_MARKDOWN: true
           MD_REPLACEMENT: _
-          TIMEOUT: 600000
-          
 
       - name: Commit Changes
         uses: everruler12/git-auto-commit-action@latest
         with:
           commit_message: Automatic backup
+
