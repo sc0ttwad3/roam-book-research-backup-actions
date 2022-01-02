@@ -4,8 +4,8 @@ Note:  GitHub will stop backups (all actions) in this repository if it sees to
 changes to the repository in 60days. You must make changes in this
 repository for it to continue working at least once-a-month.
 
-Changed: 6/13/21
-
+Changed: 06/13/21
+Touched: 01/02/22
 
 [![Roam Research backup](https://github.com/sc0ttwad3/roam-book-research-backup-actions/actions/workflows/main.yml/badge.svg)](https://github.com/sc0ttwad3/roam-book-research-backup-actions/actions/workflows/main.yml)
 
