@@ -28,7 +28,6 @@ jobs:
           cd /tmp
           git clone -q https://github.com/everruler12/roam2github.git roam2github
           cd $_
-          // the orig source file has the following line missing from mine
           npm i
           npm run backup -s
         env:
