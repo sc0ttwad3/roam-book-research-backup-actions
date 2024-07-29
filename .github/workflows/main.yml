@@ -29,7 +29,6 @@ jobs:
           git clone -q https://github.com/everruler12/roam2github.git roam2github
           cd $_
           // the orig source file has the following line missing from mine
-          git checkout aa566bf8dbeb976d33523a6945ef0115b0deb6a1
           npm i
           npm run backup -s
         env:
