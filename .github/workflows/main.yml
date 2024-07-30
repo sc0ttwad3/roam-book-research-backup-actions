@@ -13,13 +13,13 @@ jobs:
     name: Backup
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@latest
         with:
           repository: ${{ secrets.BACKUP_REPO }}
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Setup Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@latest
         with:
           node-version: '20'
 
@@ -32,7 +32,7 @@ jobs:
           npm run backup -s
         env:
           ROAM_EMAIL: ${{ secrets.ROAM_EMAIL }}
-          ROAM_PASSWORD: ${{ secrets.ROAM_PASSWORD }}
+          ROAM_PASSWORD: ${{ secrets.NEW_ROAM_PASSWORD }}
           ROAM_GRAPH: ${{ secrets.ROAM_GRAPH }}
           BACKUP_EDN: true
           BACKUP_JSON: true
