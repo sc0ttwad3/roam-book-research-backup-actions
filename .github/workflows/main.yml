@@ -13,13 +13,13 @@ jobs:
     name: Backup
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@v4
         with:
           repository: ${{ secrets.BACKUP_REPO }}
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Setup Node
-        uses: actions/setup-node@latest
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
