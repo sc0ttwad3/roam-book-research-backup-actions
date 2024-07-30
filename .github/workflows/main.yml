@@ -40,7 +40,7 @@ jobs:
           MD_REPLACEMENT: _
 
       - name: Commit Changes
-        uses: everruler12/git-auto-commit-action@latest
+        uses: everruler12/git-auto-commit-action@v4
         with:
           commit_message: Automatic backup
 
