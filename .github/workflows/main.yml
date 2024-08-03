@@ -13,7 +13,8 @@ jobs:
     name: Backup
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
           repository: ${{ secrets.BACKUP_REPO }}
           token: ${{ secrets.ACCESS_TOKEN }}
@@ -27,12 +28,12 @@ jobs:
         run: |
           cd /tmp
           git clone -q https://github.com/everruler12/roam2github.git roam2github
-          cd $_
+          cd roam2github
           npm i
           npm run backup -s
         env:
           ROAM_EMAIL: ${{ secrets.ROAM_EMAIL }}
-          ROAM_PASSWORD: ${{ secrets.NEW_ROAM_PASSWORD }}
+          ROAM_PASSWORD: ${{ secrets.ROAM_PASSWORD }}
           ROAM_GRAPH: ${{ secrets.ROAM_GRAPH }}
           BACKUP_EDN: true
           BACKUP_JSON: true
