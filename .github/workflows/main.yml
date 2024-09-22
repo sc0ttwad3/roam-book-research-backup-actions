@@ -31,7 +31,6 @@ jobs:
           cd roam2github
           npm audit fix
           npm -g upgrade
-          npm 
           npm i
           npm run backup -s
         env:
