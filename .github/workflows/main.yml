@@ -29,8 +29,6 @@ jobs:
           cd /tmp
           git clone -q https://github.com/everruler12/roam2github.git roam2github
           cd roam2github
-          npm audit fix
-          npm -g upgrade
           npm i
           npm run backup -s
         env:
