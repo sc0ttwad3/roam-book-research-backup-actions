@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          repository: BACKUP_REPO
+          repository: ${{ secrets.BACKUP_REPO }}
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Setup Node
