@@ -11,12 +11,12 @@ jobs:
   backup:
     runs-on: ubuntu-latest
     name: Backup
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ secrets.BACKUP_REPO }}
+          repository: BACKUP_REPO
           token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Setup Node
@@ -35,7 +35,7 @@ jobs:
           ROAM_EMAIL: ${{ secrets.ROAM_EMAIL }}
           ROAM_PASSWORD: ${{ secrets.ROAM_PASSWORD }}
           ROAM_GRAPH: ${{ secrets.ROAM_GRAPH }}
-          BACKUP_EDN: true
+          BACKUP_EDN: false
           BACKUP_JSON: true
           BACKUP_MARKDOWN: true
           MD_REPLACEMENT: _
