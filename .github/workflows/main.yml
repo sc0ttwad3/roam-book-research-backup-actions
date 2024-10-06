@@ -5,13 +5,13 @@ on:
     branches:
       - main
   schedule:
-      - cron: "0 */3 * * *"
+      - cron: "0 */12 * * *"
 
 jobs:
   backup:
     runs-on: ubuntu-latest
     name: Backup
-    timeout-minutes: 45
+    timeout-minutes: 40
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
