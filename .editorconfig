@@ -1,33 +1,49 @@
-﻿# EditorConfig is awesome: https://editorconfig.org
+# EditorConfig is awesome: http://EditorConfig.org
 
 # top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
+# all files
 [*]
-end_of_line = lf
+end_of_line = crlf
 insert_final_newline = true
-
-# Matches multiple files with brace expansion notation
-# Set default charset
-[*.{js,py}]
+indent_style = space
+indent_size = 2
 charset = utf-8
+trim_trailing_whitespace = true
+max_line_length = 120
 
-# 4 space indentation
+[*.md]
+trim_trailing_whitespace = false
+
 [*.py]
-indent_style = space
 indent_size = 4
-
-# Tab indentation (no size specified)
-[Makefile]
-indent_style = tab
-
-# Indentation override for all JS under lib directory
-[lib/**.js]
 indent_style = space
-indent_size = 2
 
-# Matches the exact files either package.json or .travis.yml
-[{package.json,.travis.yml}]
-indent_style = space
+[*.js]
+quote_type = single
+curly_bracket_next_line = false
+spaces_around_operators = true
+spaces_around_brackets = inside
+indent_brace_style = BSD KNF
 indent_size = 2
+indent_style = space
+
+[*.ts]
+quote_type = single
+curly_bracket_next_line = false
+spaces_around_operators = true
+spaces_around_brackets = inside
+indent_brace_style = BSD KNF
+indent_size = 2
+indent_style = space
+
+# HTML
+[*.html]
+quote_type = double
+
+[{.travis.yml,package.json}]
+# The indent size used in the `package.json` file cannot be changed
+# https://github.com/npm/npm/pull/3180#issuecomment-16336516
+indent_size = 2
+indent_style = space
