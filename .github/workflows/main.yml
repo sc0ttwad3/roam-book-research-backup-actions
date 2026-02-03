@@ -38,6 +38,7 @@ jobs:
           BACKUP_EDN: false
           BACKUP_JSON: true
           BACKUP_MARKDOWN: true
+          BACKUP_MSGPACK: true
           MD_REPLACEMENT: _
 
       - name: Commit Changes
