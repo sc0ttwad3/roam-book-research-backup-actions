@@ -1,9 +1,8 @@
 # roam-book-research-backup-actions
 
 Note:  GitHub will stop backups (all actions) in this repository if it sees no
-changes to the repository in 60days. You must make changes in this
+changes to the repository in 60 days. You must make changes in this
 repository for it to continue working at least once-a-month.
-
 
 [![Roam Research backup](https://github.com/sc0ttwad3/roam-book-research-backup-actions/actions/workflows/main.yml/badge.svg)](https://github.com/sc0ttwad3/roam-book-research-backup-actions/actions/workflows/main.yml)
 
@@ -65,9 +64,6 @@ Touching this file. 09/22/24
 
 Touching this file. 02/21/25
 
-
 Touching this file. 05/14/24
 
 Touching this file. 06/11/24
-
-
