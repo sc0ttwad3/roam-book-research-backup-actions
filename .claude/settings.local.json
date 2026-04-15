@@ -4,7 +4,8 @@
       "Bash(npm install:*)",
       "Bash(npm run backup:*)",
       "mcp__MCP_DOCKER__list_directory",
-      "mcp__MCP_DOCKER__read_file"
+      "mcp__MCP_DOCKER__read_file",
+      "mcp__MCP_DOCKER__list_commits"
     ]
   }
 }
