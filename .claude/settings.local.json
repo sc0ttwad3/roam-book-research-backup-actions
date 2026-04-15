@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(npm run backup:*)"
+      "Bash(npm run backup:*)",
+      "mcp__MCP_DOCKER__list_directory",
+      "mcp__MCP_DOCKER__read_file"
     ]
   }
 }

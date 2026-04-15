@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-      - cron: "0 */12 * * *"
+      - cron: "0 */4 * * *"
 
 jobs:
   backup:
@@ -35,14 +35,19 @@ jobs:
           ROAM_EMAIL: ${{ secrets.ROAM_EMAIL }}
           ROAM_PASSWORD: ${{ secrets.ROAM_PASSWORD }}
           ROAM_GRAPH: ${{ secrets.ROAM_GRAPH }}
-          BACKUP_EDN: false
+          BACKUP_EDN: true
           BACKUP_JSON: true
           BACKUP_MARKDOWN: true
           BACKUP_MSGPACK: true
           MD_REPLACEMENT: _
 
+      - name: Update Activity Log
+        run: |
+          mkdir -p .github/logs
+          echo "$(date -u): Backup completed successfully" >> .github/logs/backup-log.txt
+
       - name: Commit Changes
-        uses: everruler12/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Automatic backup
 
