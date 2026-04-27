@@ -12,6 +12,9 @@ This repository runs the regular backups  of my **Roam Research - BookResearch**
 
 GitHub Workflow runs from [roam-book-research-backup-actions/.github/workflows at main · sc0ttwad3/roam-book-research-backup-actions](https://github.com/sc0ttwad3/roam-book-research-backup-actions/tree/main/.github/workflows), a ***public*** GitHub repository.
 
+Using a centralized public Action that calls dedicated external scripts
+
+
 Backups are stored in [sc0ttwad3/roam-book-research (github.com)](https://github.com/sc0ttwad3/roam-book-research/tree/master), a ***private*** GitHub repository.
 
 ### Documentation and Settings:
