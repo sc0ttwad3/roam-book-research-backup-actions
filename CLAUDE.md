@@ -13,7 +13,7 @@ This repository controls a GitHub Action that performs scheduled EXPORTING of an
 2. The workflow runs directly in this repo — no cloning of external repos needed since we already have a local clone
 3. Uses Roam Research credentials from GitHub secrets to authenticate
 4. Exports via the EXPORT ALL feature (dot menu)
-5. The exported files are committed back to this repository
+5. The exported files are committed to the private GitHub repository roam-research-backup.
 
 **Note:** The workflow executes directly in this repo. No need to clone anything — we already have the local working copy.
 
