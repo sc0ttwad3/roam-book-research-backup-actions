@@ -1,12 +1,10 @@
 # roam-book-research-backup-actions
 
-Note:  GitHub will stop backups (all actions) in this repository if it sees no
-changes to the repository in 60 days. You must make changes in this
-repository for it to continue working at least once-a-month.
+Note: GitHub will stop backups (all actions) in this repository if it sees nochanges to the repository in 60 days. You must make changes in thisrepository for it to continue working at least once-a-month.
 
 [![Roam Research backup](https://github.com/sc0ttwad3/roam-book-research-backup-actions/actions/workflows/main.yml/badge.svg)](https://github.com/sc0ttwad3/roam-book-research-backup-actions/actions/workflows/main.yml)
 
-This repository runs the regular backups  of my **Roam Research - BookResearch** graph database.
+This repository runs the regular backups of my **Roam Research - BookResearch** graph database.
 
 ## Components and Architecture
 
@@ -14,63 +12,12 @@ GitHub Workflow runs from [roam-book-research-backup-actions/.github/workflows a
 
 Using a centralized public Action that calls dedicated external scripts
 
-
 Backups are stored in [sc0ttwad3/roam-book-research (github.com)](https://github.com/sc0ttwad3/roam-book-research/tree/master), a ***private*** GitHub repository.
 
-### Documentation and Settings:
-
-* [Roam2Github Update Instructions (notion.so)](https://www.notion.so/Roam2Github-Update-Instructions-c594a2931b694010814001c8a20fa960)
-* [Roam2Github Backup Guide (notion.so)](https://www.notion.so/Roam2Github-Backup-Guide-650925859a4a42cf940e3fb74f5189f9)
-
-Note: Every 60 days GitHub wants to deactivate this repo unless changes
-are made.
+### Documentation and Settings
 
 Touching this file. 9/2/21
 
-Touching this file. 10/12/21
-
-Touching this file. 02/27/22
-
-Touching this file. 05/28/22
-
-Touching this file. 06/06/22
-
-Touching this file. 07/21/22
-
-Touching this file. 09/21/22
-
-Touching this file. 10/09/22
-
-Touching this file. 11/16/22
-
-Touching this file. 01/09/23
-
-Touching this file. 02/03/23
-
-Touching this file. 05/08/23
-
-Touching this file. 06/30/23
-
-Touching this file. 08/30/23
-
-Touching this file. 09/10/23
-
-Touching this file. 11/27/23
-
-Touching this file. 01/22/24
-
-Touching this file. 03/23/24
-
-Touching this file. 07/02/24
-
-Touching this file. 09/22/24
-
-Touching this file. 02/21/25
-
-Touching this file. 05/14/24
-
 Touching this file. 06/11/24
 
-Editing this file. 04/15/26
-
-
+Touching this file. 04/28/26
