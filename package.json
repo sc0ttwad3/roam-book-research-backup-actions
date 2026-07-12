@@ -1,7 +1,7 @@
 {
   "name": "roam-book-research-backup-actions",
-  "version": "0.0.2",
-  "description": "Note:  GitHub will stop backups (all actions) in this repository if it sees no\r changes to the repository in 60days. You must make changes in this\r repository for it to continue working at least once-a-month.",
+  "version": "1.0.0",
+  "description": "Scheduled GitHub Action that exports the BookResearch Roam Research graph (Markdown, JSON, EDN, msgpack) and commits the files to the private roam-book-research repo.",
   "homepage": "https://github.com/sc0ttwad3/roam-book-research-backup-actions#readme",
   "bugs": {
     "url": "https://github.com/sc0ttwad3/roam-book-research-backup-actions/issues"
@@ -12,9 +12,15 @@
   },
   "license": "ISC",
   "author": "sc0ttwad3",
-  "type": "commonjs",
-  "main": "index.js",
+  "main": "backup.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "backup": "node backup.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "extract-zip": "^2.0.1",
+    "fs-extra": "^11.3.2",
+    "puppeteer": "^24.31.0",
+    "sanitize-filename": "^1.6.3"
   }
 }

@@ -157,3 +157,7 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# roam backup script local outputs
+tmp/
+backup/

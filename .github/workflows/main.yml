@@ -1,53 +1,72 @@
 name: "Roam Research backup"
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-      - cron: "0 */4 * * *"
+    - cron: "17 7 * * *" # daily 07:17 UTC (~3:17am ET)
+  workflow_dispatch:
+
+permissions:
+  contents: write # heartbeat commit to this repo
+
+concurrency:
+  group: roam-backup
+  cancel-in-progress: false
 
 jobs:
   backup:
-    runs-on: ubuntu-latest
     name: Backup
-    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Checkout backup tooling (this repo)
+        uses: actions/checkout@v5
+
+      - name: Checkout backup storage repo (private)
+        uses: actions/checkout@v5
         with:
-          repository: ${{ secrets.BACKUP_REPO }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: sc0ttwad3/roam-book-research
+          token: ${{ secrets.BACKUP_REPO_TOKEN }} # fine-grained PAT, Contents R/W on roam-book-research
+          path: backup-repo
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: '20'
+          node-version: "24"
+          cache: npm
 
-      - name: Run Backup
-        run: |
-          cd /tmp
-          git clone -q https://github.com/sc0ttwad3/roam2github.git roam2github
-          cd roam2github
-          npm i
-          npm run backup -s
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chrome for Puppeteer
+        run: npx puppeteer browsers install chrome # explicit; newer npm blocks postinstall scripts by default
+
+      - name: Export Roam graph
         env:
-          ROAM_EMAIL: ${{ secrets.ROAM_EMAIL }}
-          ROAM_PASSWORD: ${{ secrets.ROAM_PASSWORD }}
-          ROAM_GRAPH: ${{ secrets.ROAM_GRAPH }}
-          BACKUP_EDN: true
-          BACKUP_JSON: true
-          BACKUP_MARKDOWN: true
-          BACKUP_MSGPACK: true
-          MD_REPLACEMENT: _
+          R2G_EMAIL: ${{ secrets.ROAM_EMAIL }}
+          R2G_PASSWORD: ${{ secrets.ROAM_PASSWORD }}
+          R2G_GRAPH: ${{ secrets.ROAM_GRAPH }}
+          R2G_BACKUP_DIR: ${{ github.workspace }}/backup-repo
+          R2G_TIMEOUT: "2700000" # 45 min; the Markdown export alone can take 20+
+        run: node backup.js
 
-      - name: Update Activity Log
+      - name: Commit and push backups
+        working-directory: backup-repo
         run: |
-          mkdir -p .github/logs
-          echo "$(date -u): Backup completed successfully" >> .github/logs/backup-log.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Roam backup $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi
 
-      - name: Commit Changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Automatic backup
-
+      - name: Heartbeat (keeps the schedule from the 60-day auto-disable)
+        run: |
+          date -u +%Y-%m-%dT%H:%M:%SZ > LAST_BACKUP
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add LAST_BACKUP
+          git commit -m "Backup heartbeat" || exit 0
+          git push || (git pull --rebase origin main && git push)
