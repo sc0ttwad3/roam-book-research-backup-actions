@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           repository: sc0ttwad3/roam-book-research
-          token: ${{ secrets.BACKUP_REPO_TOKEN }} # fine-grained PAT, Contents R/W on roam-book-research
+          token: ${{ secrets.BACKUP_REPO_TOKEN || secrets.ACCESS_TOKEN }} # fine-grained PAT, Contents R/W on roam-book-research (falls back to legacy ACCESS_TOKEN)
           path: backup-repo
 
       - name: Setup Node
